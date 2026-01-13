@@ -1,0 +1,31 @@
+{
+  "train": {
+    "num_samples": 392,
+    "num_videos": 5
+  },
+  "dev": {
+    "num_samples": 560,
+    "num_videos": 5
+  },
+  "test": {
+    "num_samples": 290,
+    "num_videos": 5
+  },
+  "stats": {
+    "train": {
+      "total": 392,
+      "success": 392,
+      "failed": 0
+    },
+    "dev": {
+      "total": 560,
+      "success": 560,
+      "failed": 0
+    },
+    "test": {
+      "total": 290,
+      "success": 290,
+      "failed": 0
+    }
+  }
+}

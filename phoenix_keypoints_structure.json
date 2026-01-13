@@ -1,0 +1,154 @@
+{
+  "file_path": "phoenix_keypoints.pkl",
+  "file_size_mb": 1692.49,
+  "top_level_keys": [
+    "train",
+    "dev",
+    "test",
+    "stats",
+    "keypoint_info",
+    "dataset_info"
+  ],
+  "splits": {
+    "train": {
+      "num_samples": 827354,
+      "num_images": 827354,
+      "num_videos": 7096,
+      "keypoint_structure": {
+        "face": {
+          "shape": [
+            68,
+            3
+          ],
+          "dtype": "float32",
+          "has_data": true
+        },
+        "left_hand": {
+          "shape": [
+            21,
+            3
+          ],
+          "dtype": "float32",
+          "has_data": true
+        },
+        "right_hand": {
+          "shape": [
+            21,
+            3
+          ],
+          "dtype": "float32",
+          "has_data": true
+        },
+        "pose": {
+          "shape": [
+            33,
+            3
+          ],
+          "dtype": "float32",
+          "has_data": true
+        },
+        "image_shape": {
+          "shape": [
+            2
+          ],
+          "dtype": "int64",
+          "has_data": true
+        }
+      }
+    },
+    "dev": {
+      "num_samples": 55775,
+      "num_images": 55775,
+      "num_videos": 519,
+      "keypoint_structure": {
+        "face": {
+          "shape": [
+            68,
+            3
+          ],
+          "dtype": "float32",
+          "has_data": true
+        },
+        "left_hand": {
+          "shape": [
+            21,
+            3
+          ],
+          "dtype": "float32",
+          "has_data": true
+        },
+        "right_hand": {
+          "shape": [
+            21,
+            3
+          ],
+          "dtype": "float32",
+          "has_data": true
+        },
+        "pose": {
+          "shape": [
+            33,
+            3
+          ],
+          "dtype": "float32",
+          "has_data": true
+        },
+        "image_shape": {
+          "shape": [
+            2
+          ],
+          "dtype": "int64",
+          "has_data": true
+        }
+      }
+    },
+    "test": {
+      "num_samples": 64627,
+      "num_images": 64627,
+      "num_videos": 642,
+      "keypoint_structure": {
+        "face": {
+          "shape": [
+            68,
+            3
+          ],
+          "dtype": "float32",
+          "has_data": true
+        },
+        "left_hand": {
+          "shape": [
+            21,
+            3
+          ],
+          "dtype": "float32",
+          "has_data": true
+        },
+        "right_hand": {
+          "shape": [
+            21,
+            3
+          ],
+          "dtype": "float32",
+          "has_data": true
+        },
+        "pose": {
+          "shape": [
+            33,
+            3
+          ],
+          "dtype": "float32",
+          "has_data": true
+        },
+        "image_shape": {
+          "shape": [
+            2
+          ],
+          "dtype": "int64",
+          "has_data": true
+        }
+      }
+    }
+  },
+  "total_samples": 947756,
+  "total_videos": 8257
+}

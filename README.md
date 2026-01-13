@@ -69,7 +69,12 @@ pip install -r requirements.txt
 
 # 确保已安装 MediaPipe（用于关键点提取）
 pip install mediapipe
+
+# 检查 MediaPipe 安装状态
+python check_mediapipe.py
 ```
+
+如果遇到 MediaPipe 相关问题，请参考 `docs/MediaPipe安装和检查指南.md`
 
 ### 2. 数据准备
 
@@ -432,6 +437,27 @@ python inference/alignment/inference.py --config config/config.py
 - **`PROJECT_STRUCTURE.md`** - 项目结构详细说明
 - **`README_PIPELINE.md`** - Pipeline 使用详细说明
 - **`PIPELINE_CHECKLIST.md`** - Pipeline 检查清单
+- **`docs/pickle5_安装问题解决方案.md`** - pickle5 安装问题解决方案
+- **`docs/MediaPipe安装和检查指南.md`** - MediaPipe 安装和检查详细指南
+- **`docs/MediaPipe环境问题排查指南.md`** - MediaPipe 环境问题排查和解决方案
+- **`docs/MediaPipe问题已解决.md`** - MediaPipe 问题解决记录
+- **`docs/PHOENIX数据集关键点提取指南.md`** - PHOENIX-2014-T 数据集关键点提取详细指南
+- **`docs/如何查看关键点文件.md`** - 如何查看和分析关键点 pickle 文件
+- **`docs/关键点可视化指南.md`** - 如何将关键点可视化到画布上
+- **`docs/分布式关键点提取分析.md`** - 分布式处理对关键点输出的影响分析
+- **`docs/MediaPipe_GL上下文错误说明.md`** - MediaPipe GL 上下文错误说明和解决方案
+- **`docs/数据集大小差异分析.md`** - PHOENIX 数据集大小差异原因和完整提取指南
+- **`docs/GPU分布式关键点提取指南.md`** - GPU 分布式关键点提取完整指南
+- **`docs/GPU加速说明.md`** - MediaPipe GPU 使用情况和加速说明
+- **`docs/完整提取和整合工作流程.md`** - 完整提取和模型输入准备工作流程
+- **`docs/GPU使用和关键点输出影响分析.md`** - GPU 使用对关键点输出的影响分析
+- **`docs/关键点划分依据说明.md`** - 手、脸、pose 关键点划分依据详细说明
+- **`docs/关键点划分依据简要说明.md`** - 关键点划分依据简要说明
+- **`docs/PHOENIX关键点数据集格式说明.md`** - PHOENIX 关键点数据集完整格式说明
+- **`docs/关键点数据和骨架图像的区别说明.md`** - 关键点数据和骨架图像的区别说明
+- **`docs/skeleton和hierarchical_keypoint训练的区别.md`** - skeleton 和 hierarchical_keypoint 训练任务的区别
+- **`docs/hierarchical_keypoint在整个网络中的作用.md`** - hierarchical_keypoint 在整个网络中的定位和作用
+- **`docs/skeleton模型的区域划分和编码方式.md`** - skeleton 模型的区域划分和分别编码方式详解
 
 ## 模型说明
 
