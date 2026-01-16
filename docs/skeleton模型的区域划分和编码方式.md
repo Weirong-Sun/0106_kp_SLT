@@ -361,3 +361,4 @@ weight_mask = create_region_weight_mask(image_size)
 **区域数量**: 4个（Face, Left hand, Right hand, Pose）
 
 
+

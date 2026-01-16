@@ -397,3 +397,4 @@ python training/hierarchical_keypoint/train.py \
 **关键区别**: 输出格式（图像 vs 关键点）和关键点范围（143 vs 68）
 
 
+
