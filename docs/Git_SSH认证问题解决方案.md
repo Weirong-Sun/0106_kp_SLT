@@ -146,3 +146,84 @@ git push
 - ❌ SSH agent 未加载私钥（需要输入密码）
 - ❓ 需要确认公钥是否已添加到 GitHub
 
+## Cursor Sync Changes 特殊说明
+
+**问题：** 在 Cursor 的 "Sync Changes" 操作中，Git 会执行 `git pull --tags origin master`，但由于私钥有密码，无法自动加载密钥，导致认证失败。
+
+**解决方案选择：**
+
+### 方案A：使用终端手动添加密钥（临时解决）
+
+在 Cursor 的终端中运行配置脚本：
+
+```bash
+# 运行配置脚本
+./setup_ssh_for_cursor.sh
+```
+
+或手动执行：
+
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519  # 会提示输入密码
+ssh -T git@github.com      # 测试连接
+```
+
+**注意：** 此方法只在当前终端会话有效，关闭终端后需要重新添加。
+
+### 方案B：切换到 HTTPS（推荐用于 Cursor）
+
+对于 Cursor 的自动同步操作，使用 HTTPS 更可靠（不需要交互输入密码）：
+
+```bash
+# 1. 更改远程仓库 URL 为 HTTPS
+git remote set-url origin https://github.com/Weirong-Sun/0106_kp_SLT.git
+
+# 2. 配置 Git 凭据存储（可选，避免每次都输入）
+git config --global credential.helper store
+```
+
+**首次推送时需要：**
+- GitHub 用户名：`Weirong-Sun`
+- 个人访问令牌（Personal Access Token）：不是密码！
+
+**创建个人访问令牌：**
+1. 访问：https://github.com/settings/tokens
+2. 点击 "Generate new token" → "Generate new token (classic)"
+3. 勾选权限：`repo`（完整仓库权限）
+4. 生成后复制令牌（只显示一次）
+5. 在 Git 提示时，用户名输入 GitHub 用户名，密码输入令牌
+
+### 方案C：使用无密码密钥（长期解决）
+
+如果希望 Cursor 可以自动同步，可以创建一个专门用于 Cursor 的无密码密钥：
+
+```bash
+# 1. 生成无密码密钥
+ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_cursor -C "cursor@github" -N ""
+
+# 2. 查看公钥并添加到 GitHub
+cat ~/.ssh/id_ed25519_cursor.pub
+
+# 3. 更新 SSH config 指定使用新密钥
+cat >> ~/.ssh/config << EOF
+
+Host github.com-cursor
+  HostName github.com
+  User git
+  IdentityFile /root/.ssh/id_ed25519_cursor
+  IdentitiesOnly yes
+EOF
+
+# 4. 更新 Git 远程 URL
+git remote set-url origin git@github.com-cursor:Weirong-Sun/0106_kp_SLT.git
+```
+
+**注意：** 此方法安全性较低（密钥无密码），但适合自动化场景。
+
+## 推荐方案（针对 Cursor）
+
+1. **如果只是偶尔需要同步**：使用方案A，在终端手动添加密钥
+2. **如果经常使用 Cursor 同步**：使用方案B（HTTPS + 个人访问令牌），最可靠
+3. **如果需要完全自动化**：使用方案C（无密码密钥），但需注意安全
+
